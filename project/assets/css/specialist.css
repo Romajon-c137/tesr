@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'GothamProBlackItalic';
+  src: url('../font/GothaProMed.otf') format('truetype');
+}
+@font-face {
+  font-family: 'GothamProLightItalic';
+  src: url('../font/GothaProLig.otf') format('truetype');
+}
+.departments {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  margin: 45px 0;
+  justify-content: center;
+}
+
+.department {
+  width: 272px;
+  height: 30px;
+  border: 1px solid #e42261;
+  font-family: PT Sans Caption;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  background-color: transparent;
+  cursor: pointer;
+  color: #e42261;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.department:hover {
+  background-color: #e42261;
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #e42261;
+  color: white;
+  cursor: pointer;
+}
+
+.head-department {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  max-width: 1150px;
+  margin: 120px auto;
+  justify-content: space-between;
+}
+
+.department-title {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+
+  text-align: center;
+
+  color: #220f0f;
+}
+
+.department-text {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #806d6d;
+  text-align: left;
+}
+.swiper-button-next5 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  right: -4% !important;
+}
+
+.swiper-button-prev5 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  left: -4% !important;
+}
+
+.swiper-button-next6 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  right: -4% !important;
+}
+
+.swiper-button-prev6 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  left: -4% !important;
+}
+
+.hub-department {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  max-width: 1150px;
+  margin: 120px auto;
+  justify-content: space-between;
+}
+
+.department-title-hub {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+
+  text-align: center;
+
+  color: #220f0f;
+}
+
+.department-text-hub {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #806d6d;
+  text-align: left;
+}

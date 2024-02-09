@@ -1,0 +1,19 @@
+{% extends 'main/index.html' %} 
+{% load static i18n %} 
+{% block content %}
+
+<!-- PAGE DETAIL -->
+<div class="container">
+  <!-- PAGE THUMB -->
+  <div class="page-detail">
+    <div class="page-image">
+      <img src="images/page-image3.jpg" class="img-responsive" alt="" />
+    </div>
+    <h3>{{ page.title }}</h3>
+    <p>
+      {{ page.description|safe }}
+    </p>
+  </div>
+</div>
+
+{% endblock %}

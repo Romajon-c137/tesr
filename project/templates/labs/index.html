@@ -1,0 +1,1400 @@
+{% extends 'main/index.html' %} {% load static i18n %} {% block styles %}
+
+<!--  services  -->
+<link href="{% static 'css/services.css' %}" rel="stylesheet" />
+<link href="{% static 'css/prices.css' %}" rel="stylesheet" />
+<link href="{% static 'css/main.css' %}" rel="stylesheet" />
+<link href="{% static 'css/clinic.css' %}" rel="stylesheet" />
+<link href="{% static 'css/labs.css' %}" rel="stylesheet" />
+<link href="{% static 'css/romajon.css' %}" rel="stylesheet" />
+
+{% endblock %} {% block content %}
+<section>
+	<div class="container">
+		<div class="hub-banner">
+			<div class="hub-info">
+				<h1 class="hub-banner-title">Современная лаборатория Диагностик</h1>
+				<div class="hub-banner-text">
+					<p>
+						Лаборатория Клиники Диагностик позволяет проводить более 100+ видов исследований на
+						современном оборудовании, отвечающем мировым стандартам, Опытные лаборанты сделают этот
+						процесс легким и безболезненным. Получить результаты исследований можно не выходя из
+						дома, авторизовавшись на сайте <a href="www.diagnostik.kg">www.diagnostik.kg</a> в
+						разделе «Получить результаты анализов»
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<!-- <div class="categories2">
+      <a href="/services#our-work" class="serv active">Все</a>
+
+      <a href="#our-work" class="serv">Клиническая лабаротория</a>
+      <a href="#our-work" class="serv">Биохимическая лабаротория</a>
+      <a href="#our-work" class="serv">Иммуноферментный анализ</a>
+    </div> -->
+
+		<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+		<style>
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				margin: 20px auto 40px auto;
+			}
+
+			.table_container {
+				text-align: center;
+			}
+			.table_container h2 {
+				margin-top: 20px;
+			}
+			.table_container p {
+				margin-top: 10px;
+				color: #3c3c3c;
+			}
+      .romajon_table_top {
+        display: flex; 
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+      .romajon_table_top button{
+        margin-bottom: 0px;
+        background-color: #e6215f;
+      }
+      .romajon_table_top select{
+        border-color: #e6215f ;
+        border-radius: 10px;
+      }
+
+      .romajon_table_top option{
+        padding: 10px;
+        border: solid 1px #e6215f;
+      }
+			th,
+			td {
+				border: 1px solid #e6215f;
+				padding: 8px;
+				text-align: left;
+			}
+
+			th {
+				background-color: #e6215f;
+				color: white;
+			}
+			tr td:first-child {
+				color: red;
+				font-weight: bold;
+				width: 16px;
+			}
+
+			tr td:nth-child(2) {
+				width: 40%;
+			}
+			@media (max-width: 540px) {
+				table {
+					font-size: 12px;
+				}
+				.table_container {
+					width: 700px;
+				}
+			}
+		</style>
+		<script>
+			// Функция для отображения всех таблиц
+			function showAllTables() {
+				var tables = document.querySelectorAll('.category-table')
+				tables.forEach(table => (table.style.display = 'block'))
+			}
+
+			// Функция для обработки выбора из селекта
+			function showTable(selectedCategory) {
+				// Скрываем все таблицы
+				var tables = document.querySelectorAll('.category-table')
+				tables.forEach(table => (table.style.display = 'none'))
+
+				// Показываем выбранную таблицу
+				var selectedTable = document.getElementById(selectedCategory)
+				if (selectedTable) {
+					selectedTable.style.display = 'block'
+				}
+			}
+
+			showAllTables()
+		</script>
+    <div class="romajon_table_top">
+      <button onclick="showAllTables()">Показать все таблицы</button>
+      <!-- <label for="categorySelect">Выберите категорию:</label> -->
+      <select id="categorySelect" onchange="showTable(this.value)">
+        <option value="hematology">Гематологические и общеклинические исследования</option>
+        <option value="biochemistry">Биохимические исследование</option>
+        <option value="immunology">Иммуносерологические исследования</option>
+        <option value="electrolytes">Электролиты и микроэлементы в крови</option>
+        <option value="coagulation">Свертывающая система крови</option>
+        <option value="thyroid">Гормоны щитовидной железы</option>
+        <option value="reproductive">Гормоны репродуктивной сферы</option>
+        <option value="oncology">Онкомаркеры</option>
+        <option value="viral_markers">Маркеры вирусных гепатитов</option>
+        <option value="urogenital_infections">Антитела к возбудителям урогенитальных инфекций</option>
+        <option value="torch_infections">Антитела к возбудителям инфекции TORCH</option>
+        <option value="outpatient">Амбулаторное обследование и стационарное лечение</option>
+        <option value="xray">Кабинет рентгенографии</option>
+      </select>
+    </div>
+
+		<div class="table_container">
+			<div id="hematology" class="category-table">
+				<h2>Гематологические и общеклинические исследования</h2>
+				<p>
+					(исследуемые материалы: стабилизированная кровь, моча, эпителиальные соскобы, кал,
+					эякулят)
+				</p>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Общий анализ крови</td>
+							<td>50</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Развернутый анализ крови</td>
+							<td>50</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Общий анализ мочи</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Анализ мочи по Нечипоренко</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Копрограмма</td>
+							<td>0</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Анализ кала на скрытую кровь(проба Грегерсена)</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Анализ вагинального мазка на УГИ</td>
+							<td>0</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Исследование мазка на антипичиские клетки</td>
+							<td>0</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>Анализ мокроты на БК</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>Определение желчных пигментов в моче</td>
+							<td>0</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>Группа крови резус фактор</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>Кал на я/г</td>
+							<td>0</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td>Сахар мочи</td>
+							<td>0</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>Спермограмма</td>
+							<td>0</td>
+							<td>500</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>Определение титра антител по системе резус</td>
+							<td>50</td>
+							<td>500</td>
+							<td>Ежедневно</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="biochemistry" class="category-table">
+				<h2>Биохимические исследование</h2>
+				<p>(исследуемые материалы: кровь, моча)</p>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>АЛТ(Аланинаминотрансфераза)</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Альфа-амилаза общая</td>
+							<td>50</td>
+							<td>220</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>АСТ(Аспартатаминотрансфераза)</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>ЛДГ(Лактатдегидрогеназа)</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Щелочная фосфатаза</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Креатинкиназа</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>ЛПВ(Липопротеиды высокой плотности)</td>
+							<td>50</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Липопротеиды низкой плотности</td>
+							<td>50</td>
+							<td>280</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>Холестерин</td>
+							<td>50</td>
+							<td>180</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>Общий белок</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>Альбумин, глобулин</td>
+							<td>50</td>
+							<td>160</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>Креатинин</td>
+							<td>50</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td>Мочевина</td>
+							<td>50</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>Мочевая кислота</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>Остаточный азот</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td>Общий билирубин</td>
+							<td>50</td>
+							<td>180</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>Прямой билирубин</td>
+							<td>50</td>
+							<td>160</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>Триглицериды</td>
+							<td>50</td>
+							<td>160</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td>Глюкоза в крови</td>
+							<td>50</td>
+							<td>220</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td>Глюкоза в моче</td>
+							<td>50</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>21</td>
+							<td>Глюкозилированный гемоглабин</td>
+							<td>50</td>
+							<td>550</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>22</td>
+							<td>Глюкозотолерантный тест</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>23</td>
+							<td>Тимоловая проба</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="immunology" class="category-table">
+				<h2>Иммуносерологические исследования</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>АСЛ-О (антистрептолизин-о)</td>
+							<td>50</td>
+							<td>260</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>РФ (ревматоидный фактор)</td>
+							<td>50</td>
+							<td>260</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>СРБ (С-реактивный белок)</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Реакция Вассермана</td>
+							<td>50</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Суммарные антитела на сифилис</td>
+							<td>50</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Иммуносерологические исследования" здесь -->
+					</tbody>
+				</table>
+			</div>
+			<div id="electrolytes" class="category-table" >
+				<h2>Электролиты и микроэлементы в крови</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Железо</td>
+							<td>50</td>
+							<td>230</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Калий</td>
+							<td>50</td>
+							<td>230</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Кальций</td>
+							<td>50</td>
+							<td>230</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Магний</td>
+							<td>50</td>
+							<td>230</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Хлориды</td>
+							<td>50</td>
+							<td>230</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Натрий</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Фосфор</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Медь</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>Цинк</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Электролиты и микроэлементы в крови" здесь -->
+					</tbody>
+				</table>
+			</div>
+			<div id="coagulation" class="category-table">
+				<h2>Свертывающая система крови</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Протромбиновое время</td>
+							<td>50</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Фибриноген А</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Фибриноген Б</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Тромбиновое время</td>
+							<td>50</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>АЧТВ (активированное частичное тромбопластиновое время)</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Тромботест</td>
+							<td>50</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>МНО</td>
+							<td>100</td>
+							<td>Ежедневно</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Д-димер</td>
+							<td>50</td>
+							<td>650</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Свертывающая система крови" здесь -->
+					</tbody>
+				</table>
+			</div>
+
+			<div id="thyroid" class="category-table">
+				<h2>Гормоны щитовидной железы</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Т3 общий</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Т3 (свободный)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Т4 общий</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Т4 (свободный)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>ТТГ (тиреотробный гормон)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>ТГ (тиреоглобулин)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>АТ к ТПО</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Гормоны щитовидной железы" здесь -->
+					</tbody>
+				</table>
+			</div>
+
+			<div id="reproductive" class="category-table">
+				<h2>Гормоны репродуктивной сферы</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Пролактин</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Тестостерон</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Прогестерон</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Эстрадиол</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>ЛГ (лютеинизирующий гормон)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>ФСГ (фолликул-стимулирующий гормон)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>17 ОКС (17-оксикортикостероиды)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>ДГЭАС (дегидроэпиандростеронсульфат)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>АМГ (анти-мюллеров гормон)</td>
+							<td>50</td>
+							<td>1200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Гормоны репродуктивной сферы" здесь -->
+					</tbody>
+				</table>
+			</div>
+			<div id="oncology" class="category-table">
+				<h2>Онкомаркеры</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>СА-15-3 (молочная железа)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>СА -125 (органы малого таза)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>РЭА (раковый эмбриональный антиген)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>ПСА (предстательная железа: общий, свободный)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>АФП (альфа-фетопротеин)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>ХГЧ (хорионический гонадотропин человека)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>СА-19-9 (внутренние органы)</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Онкомаркеры" здесь -->
+					</tbody>
+				</table>
+			</div>
+
+			<div id="viral_markers" class="category-table">
+				<h2>Маркеры вирусных геппатитов</h2>
+				<p>(качественное определение)</p>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Гепатит А</td>
+							<td>50</td>
+							<td>450</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Гепатит В (HBsAg)</td>
+							<td>50</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Гепатит С (HCVAg)</td>
+							<td>50</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Маркеры вирусных гепатитов (качественное определение)" здесь -->
+					</tbody>
+				</table>
+			</div>
+
+			<div id="urogenital_infections" class="category-table">
+				<h2>Антитела к возбудителям урогенитальных инфекций</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Антитела к Micoplasma genitalium IgG</td>
+							<td>50</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Антитела к Micoplasma genitalium IgM</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Антитела к Chlamydia trachomatis IgG (хлам. урогенитальный)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Антитела к Chlamydia trachomatis IgM (хлам. урогенитальный)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Уреплазма (Ureaplasma urealiticum) IgG</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Антитела к возбудителям урогенитальных инфекций" здесь -->
+					</tbody>
+				</table>
+			</div>
+			<div id="torch_infections" class="category-table">
+				<h2>Антитела к возбудителям инфекции TORCH</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Забор анализов (сом)</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Антитела к вирусу P.rubeola IgM (краснуха)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Антитела к вирусу P.rubeola IgG (краснуха)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Антитела к ВПГ I,II типа IgG авидность</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Антитела к T.gondii IgG (токсоплазмоз)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Антитела к T.gondii IgM (токсоплазмоз)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Антитела к CMV IgG (цитомегаловирусная инфекция)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Антитела к CMV IgM (цитомегаловирусная инфекция)</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Бруцеллез IgG</td>
+							<td>50</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Антитела к возбудителям инфекции TORCH" здесь -->
+					</tbody>
+				</table>
+			</div>
+
+			<div id="medical_exams_and_treatment" class="category-table">
+				<h2>Амбулаторное обследование и стационарное лечение.</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Консультация терапевта</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Консультация гинеколога</td>
+							<td>500</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Консультация кардиолога</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Консультация невролога</td>
+							<td>400</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>ЭКГ</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Суточный ЭКГ мониторинг</td>
+							<td>1000</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Суточный АД мониторинг</td>
+							<td>900</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>ЭХО КГ сердца</td>
+							<td>1000</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>УЗИ сосудов нижних конечностей</td>
+							<td>650</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>УЗИ сосудов шеи</td>
+							<td>650</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>УЗИ суставов</td>
+							<td>650</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>Криодеструкция</td>
+							<td>3000</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td>МВА</td>
+							<td>2600</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>Биопсия шейки матки</td>
+							<td>500</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>Стац. лечение 1-день пребывания (без физиолечения)</td>
+							<td>1200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td>Стац. лечение 1-день пребывания (с физиолечением)</td>
+							<td>1600</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>Фитобочки 1-процедура</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>Массаж 1-процедура</td>
+							<td>300,500</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td>Амбулаторные инъекции в/в капельные 1-процедура</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td>Амбулаторные инъекции в/м 1-процедура</td>
+							<td>50</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>21</td>
+							<td>УЗИ печени желчного пузыря</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>22</td>
+							<td>УЗИ поджелудочной железы</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>23</td>
+							<td>УЗИ почек</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td>УЗИ Предстательной железы</td>
+							<td>200</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>25</td>
+							<td>УЗИ матки придатков (конвекс)</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>26</td>
+							<td>УЗИ (датчик вагинальный)</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>27</td>
+							<td>УЗИ беременность до 12 недель</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>28</td>
+							<td>УЗИ беременность после 12 недель</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>29</td>
+							<td>УЗИ щитовидной железы</td>
+							<td>250</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>30</td>
+							<td>УЗИ молочной железы</td>
+							<td>300</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>31</td>
+							<td>УЗИ селезенки</td>
+							<td>150</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>32</td>
+							<td>Фолликул метрия</td>
+							<td>350</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>33</td>
+							<td>Гастроскопия (на голодный желудок) до 12:00 часов</td>
+							<td>900</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Амбулаторное обследование и стационарное лечение" здесь -->
+					</tbody>
+				</table>
+			</div>
+			<div id="xray_exams" class="category-table">
+				<h2>Кабинет рентгенографии</h2>
+				<table style="display: table">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>Наименование исследования</th>
+							<th>Цена (сом)</th>
+							<th>Дни постановки анализа</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Рентгенография черепа (в прямой, боковой проекции)</td>
+							<td>750</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Рентгенография придаточных пазух носа</td>
+							<td>600</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Рентгенография верхней конечности с охватом одного сустава (в 2-х проекциях)</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Рентгенография нижней конечности с охватом одного сустава(в 2-х проекциях)</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Гистеросальпингография</td>
+							<td>2000</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Экскреторная урография</td>
+							<td>2000</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Рентгенография зубов (панорамный снимок)</td>
+							<td>650</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Рентгенография грудной клетки</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>Рентгенография позвонка (шейный отдел в 2-х проекциях)</td>
+							<td>750</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>Рентгенография позвонка (грудной отдел в 2-х проекциях)</td>
+							<td>750</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>Рентгенография позвонка (поясничный отдел в 2-х проекциях)</td>
+							<td>750</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>Рентгенография крестца, копчика</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td>Рентгенография костей таза</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>Урография обзорная</td>
+							<td>700</td>
+							<td>Ежедневно</td>
+						</tr>
+						<!-- Продолжайте добавлять остальные строки для категории "Кабинет рентгенографии" здесь -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+		<div class="lab-cards">
+			{% for analysis in analysises %}
+			<div class="lab-card">
+				<div class="hub-description">
+					{% comment %}
+					<div class="hub-img"></div>
+					{% endcomment %}
+					<div class="description-info">
+						<div class="descript-top">
+							{% comment %}
+							<div class="description-text">
+								<p>
+									В организме все гормоны взаимосвязаны, и по состоянию одних гормонов нередко можно
+									увидеть состояние других. В женском здоровье особенную роль играет репродуктивная
+									панель. В зависимости от проблемы, с которой женщина обращается к специалисту,
+									врач может назначить анализ крови на гормоны, чтобы подтвердить или опровергнуть
+									предварительный анализ. Исследования на гормоны могут быть назначены, например, в
+									следующих случаях: • нарушения в развитии тех или иных органов; • диагностика
+									беременности; • бесплодие; • беременность с угрозой выкидыша; • нарушения обмена
+									веществ;
+								</p>
+								<br />
+								<p>
+									c. Luctus vestibulum vel in molestie velit sit in in imperdiet quis, morbi integer
+									eleifend venenatis nulla lorem ve.
+								</p>
+							</div>
+							{% endcomment %}
+						</div>
+						<div class="price-list">
+							<h1 class="description-title">{{ analysis.name }}</h1>
+							<div class="result-price">{{ analysis.price }} сом</div>
+							<button class="appointment-btn btn-red-60">Записатся</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

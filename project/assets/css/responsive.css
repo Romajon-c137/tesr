@@ -1,0 +1,464 @@
+@media (max-width: 1440px) {
+  .swiper-container {
+    max-width: calc(1140px + 130px);
+  }
+  .container {
+    max-width: 1140px;
+  }
+  .menu-list {
+    gap: 15px;
+  }
+  /* .phone-menu {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    height: 46px;
+  } */
+  .card {
+    width: 260px;
+  }
+  .info-box {
+    width: 300px;
+  }
+  .media-loc{
+    width: 78%;
+    height: 180px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  
+    
+  }
+  .t-media{
+    justify-content: center;
+    width: 400px;
+    height: 111px;
+  }
+  .l-media{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 22px;
+  }
+
+  .clinic-card-text{
+    max-width: 590px !important;
+    row-gap: 20px !important;
+  }
+  .clinic-card-img2{
+    height: 445px !important;
+  }
+  .clinic-card-img{
+    height: 445px !important;
+  }
+  .doctors-slider{
+    padding-bottom: 1% !important;
+  }
+  .feedback-card {
+    width: 280px;
+    height: 330px;
+  }
+  .read-more {
+    margin: 0;
+  }
+  .person-name {
+    padding-bottom:20px
+  }
+}
+
+@media (max-width: 1199px) {
+  .swiper-container {
+    max-width: calc(960px + 130px);
+  }
+  .container {
+    max-width: 960px;
+  }
+  /* .phone-menu {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    height: 46px;
+  } */
+  .menu-list {
+    margin-left: 20px;
+    gap: 15px;
+  }
+  .menu-list li{
+    font-size: 15px;
+  }
+  .result-btn {
+    /* width: 155px; */
+  }
+  .info-box {
+    width: 95%;margin: 0 auto;
+    /* height: 404px; */
+  }
+  .card {
+    width: 180px;
+  }
+  .media-loc{
+    width: 886px;
+    height: 180px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  
+    
+  }
+  .t-media{
+    justify-content: center;
+    width: 400px;
+    height: 111px;
+  }
+  .l-media{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 22px;
+  }
+  .categories{
+    justify-content: center;
+  }
+  .clinic-card-text{
+    max-width: 468px !important;
+    row-gap: 20px !important;
+  }
+  .clinic-card-img2{
+    height: 469px !important;
+    width: 445px !important;
+  }
+  .clinic-card-img{
+    height: 469px !important;
+    width: 445px !important;
+  }
+  .footer-content{
+    gap: 24px !important;
+  }
+  .footer-content {
+    gap: 70px !important;
+    width: 599px;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .doctors-slider{
+    padding-bottom: 1% !important;
+  }
+  .hub-banner-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .romajon_adress{
+    flex-direction: column;
+  }
+  .loc-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .loc-map,
+  #clinic-location{
+    width: 100%;
+  }
+  .media-loc{
+    width: 100%;
+  }
+  .romajon_table{
+    width: 100%;
+    justify-content: center;
+  }
+  .swiper-container {
+    max-width: calc(720px + 130px);
+  }
+  .container {
+    max-width: 720px;
+  }
+  .menu-list,
+  .phone-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .information-boxes {
+    max-width: 458px;
+  }
+  .card {
+    width: 165px;
+  }
+  .description {
+    font-size: 14px;
+  }
+  .banner-info {
+    padding: 50px;
+  }
+  .categories{
+    justify-content: center;
+  }
+  .abuot-clinic-big-card-2{
+    flex-direction: column-reverse;
+    align-items: flex-start !important;
+    row-gap: 20px !important;
+  }
+  .abuot-clinic-big-card-1{
+    row-gap: 20px !important;
+  }
+  .clinic-card-img{
+    width: 100% !important;
+  }
+  .clinic-card-img2{
+    width: 100% !important;
+  }
+  .footer-content {
+    gap: 70px !important;
+    width: 599px;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .doctors-slider{
+    padding-bottom: 1% !important;
+  }
+  .results{
+    padding: 20px 0 !important;
+  }
+  .hub-description{
+    padding: 0 26px !important;
+  }
+  .description-text{
+    font-size: 14px !important;
+  }
+  .result-price{
+    width: 111px;
+    font-size: 27px !important;
+  }
+  .lab-card{
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  .footer-contact {
+    height: 100%;
+  }
+  .footer-menu {
+    margin: 0;
+  }
+  .hub-info {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .swiper-container {
+    max-width: calc(540px + 130px);
+  }
+  .container {
+    max-width: 540px;
+  }
+  .phone-menu {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    height: 46px;
+  }
+  .menu-list,
+  .phone-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .information-boxes {
+    max-width: 458px;
+  }
+  .about-cards {
+    gap: 13px;
+  }
+  .card {
+    width: 260px;
+  }
+  .categories{
+    justify-content: center;
+  }
+  .abuot-clinic-big-card-2{
+    flex-direction: column-reverse;
+    align-items: flex-start !important;
+    row-gap: 20px !important;
+  }
+  .abuot-clinic-big-card-1{
+    row-gap: 20px !important;
+  }
+  .clinic-card-img{
+    width: 100% !important;
+  }
+  .clinic-card-img2{
+    width: 100% !important;
+  }
+  .footer-content {
+    gap: 40px !important;
+    width: 550px;
+    justify-content: left;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .banner-text-one{
+    width: 320px;
+  }
+  .banner-text-two{
+    width: 320px;
+  }
+  .banner-inner{
+    padding: 40px !important;
+  }
+  .banner-serv{
+    /* height: 450px; */
+  }
+  .doctors-slider{
+    padding-bottom: 1% !important;
+  }
+  .banner-text-1{
+    width: 320px;
+  }
+  .banner-text-2{
+    /* width: 320px; */
+  }
+  .banner-info-2{
+    padding: 40px !important;
+    justify-content: flex-start;
+  }
+  .results{
+    padding: 20px 0 !important;
+   
+  }
+  .hub-description{
+    padding: 0 26px !important;
+    flex-direction: column ; 
+  }
+  .department-result{
+    padding-left: 40px !important;
+  }
+  .hub-img{
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 95%;
+  }
+  .phone-menu {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    height: 46px;
+  }
+  .menu-list,
+  .phone-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .information-boxes {
+    max-width: 458px;
+  }
+  .categories{
+    justify-content: center;
+  }
+  .abuot-clinic-big-card-2{
+    flex-direction: column-reverse;
+    align-items: flex-start !important;
+    row-gap: 20px !important;
+  }
+  .abuot-clinic-big-card-1{
+    row-gap: 20px !important;
+  }
+  .clinic-card-img{
+    width: 100% !important;
+  }
+  .clinic-card-img2{
+    width: 100% !important;
+  }
+  .footer-content {
+    gap: 40px !important;
+    width: 285px;
+    justify-content: left;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .banner-text-one{
+    width: 300px;
+    font-size: 14px;
+  }
+  .banner-text-two{
+    width: 320px;
+  }
+  .banner-inner{
+    padding: 40px !important;
+  }
+  .banner-serv{
+    /* height: 450px; */
+  }
+  .doctors-slider{
+    padding-bottom: 1% !important;
+  }
+  .card{
+    width: 95%;
+    margin: 0 auto;
+  }
+  .about-cards {
+    gap: 13px;
+  }
+  .banner-text-1{
+    width: 320px;
+  }
+  .banner-text-2{
+    /* width: 242px; */
+  }
+  .banner-info-2{
+    padding: 40px !important;
+    justify-content: flex-start;
+  }
+  .results{
+    padding: 20px 0 !important;
+    row-gap: 50px !important;
+   
+  }
+  .hub-description{
+    padding: 0 26px !important;
+    flex-direction: column ; 
+  }
+  .description-text{
+    font-size: 14px !important;
+  }
+  .result-price{
+    width: 111px;
+    font-size: 27px !important;
+  }
+  .hub-img{
+    width: 100% !important;
+  }
+  .department-result{
+    padding-left: 40px !important;
+  }
+  
+}
+
+
+@media (max-width:580px) {
+  .sliders-with-name{
+    flex-direction: column;
+    align-items: center;
+  }
+  .doctors__info{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .result-btn{
+    font-size: 12px;
+  }
+}

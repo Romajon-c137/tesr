@@ -1,0 +1,29 @@
+{% extends 'main/index.html' %}
+{% load static i18n %}
+
+{% block styles %}
+
+    <!--  services  -->
+    <link href="{% static 'css/services.css' %}" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block content %}
+
+<section>
+  <div class="container">
+    <div class="serv__inner">
+      <div class="serv__inner_img">
+        <img src="../../media/{{ service.image }}" alt="">
+      </div>
+        <div class="serv-heading" style="color: black;"> {{ service.title }}</div>
+        <div class="serv-description">
+             {{ service.description|safe  }}
+        </div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock %}
+

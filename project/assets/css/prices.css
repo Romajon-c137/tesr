@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'GothamProBlackItalic';
+  src: url('../font/GothaProMed.otf') format('truetype');
+}
+@font-face {
+  font-family: 'GothamProLightItalic';
+  src: url('../font/GothaProLig.otf') format('truetype');
+}
+.results {
+  max-width: 100%;
+  height: 624px;
+  border: 1px solid #e42261;
+  border-radius: 32px;
+  margin: 63px 0;
+}
+
+.active-result {
+  color: #e42261 !important;
+}
+
+.department-result li {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 140%;
+  color: #fba5a5;
+  cursor: pointer;
+  text-align: left;
+}
+
+.department-result li:hover {
+  color: #e42261;
+}
+
+.department-result {
+  max-height: 101px;
+  max-width: 490px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 120px;
+}
+
+.result-title {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: left;
+  color: #220f0f;
+  padding: 45px;
+}
+
+.hub-img {
+  background-image: url(../images/Rectangle-8.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 320px;
+  height: 320px;
+  border-radius: 32px;
+  border: 1px solid #e42261;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0;
+  height: 100%;
+  row-gap: 35px;
+}
+
+.hub-description {
+  display: flex;
+  gap: 20px;
+  padding: 45px;
+}
+
+.description-title {
+  text-align: left;
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  color: #220f0f;
+}
+
+.description-text {
+  max-width: 924px;
+  text-align: left;
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+
+  color: #806d6d;
+}
+
+.description-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.descript-top {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.result-price {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: left;
+  color: #220f0f;
+  display: flex;
+  align-items: center;
+}
+
+.price-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 10px;
+}
+
+.slider-heading {
+  max-width: 1150px;
+  margin: 50px auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.doc-title {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 120%;
+  color: #220f0f;
+}
+
+.doc-text {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #806d6d;
+}
+
+.swiper-button-next4 {
+  position: absolute !important;
+  top: 35% !important;
+  color: #e42261 !important;
+  right: -4% !important;
+}
+
+.swiper-button-prev4 {
+  position: absolute !important;
+  top: 35% !important;
+  color: #e42261 !important;
+  left: -4% !important;
+}
+
+.hub-banner {
+  height: 491px;
+  background-image: url(../images/Clinics/slide/6.jpg);
+  background-repeat: no-repeat;
+  margin: 25px auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 32px;
+  width: 100%;
+  text-align: left;
+}
+
+.hub-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  max-width: 711px;
+  padding: 120px;
+}
+
+.hub-banner-title {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: left;
+  text-decoration-line: underline;
+  color: #220f0f;
+  max-width: 450px;
+}
+
+.hub-banner-text {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: left;
+  color: #292929;
+}
+.btn-red-60 {
+  background-color: #fb9394 !important;
+  border: 1px solid #fb9394;
+}
+.btn-red-60:hover {
+  background-color: transparent !important;
+  color: #e42261 !important;
+}

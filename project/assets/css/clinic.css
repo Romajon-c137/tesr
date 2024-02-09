@@ -1,0 +1,196 @@
+@font-face {
+  font-family: 'GothamProBlackItalic';
+  src: url('../font/GothaProMed.otf') format('truetype');
+}
+@font-face {
+  font-family: 'GothamProLightItalic';
+  src: url('../font/GothaProLig.otf') format('truetype');
+}
+
+.banner-serv {
+  background-image: url(../images/Clinics/slide/2.jpg);
+  background-repeat: no-repeat;
+  margin: 45px auto;
+  background-size: cover;
+  background-position: center;
+  /* border: 1px solid red; */
+  border-radius: 32px;
+}
+.banner-wrap-caption {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 2%, rgba(251, 251, 251, 0) 100%);
+  border-radius: 32px;
+  height: 100%;
+}
+
+.background-slide {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 458px !important;
+  height: 500px;
+  border-radius: 32px;
+  border: 1px solid #fba5a5 !important;
+  transform: scale(0.7);
+}
+
+.categories2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+}
+
+.swiper-button-next3 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  /* right: 2% !important; */
+}
+
+.swiper-button-prev3 {
+  position: absolute !important;
+  top: 45% !important;
+  color: #e42261 !important;
+  /* left: 2% !important; */
+}
+
+.abuot-clinic-big-card-1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1312px;
+  gap: 44px;
+  margin: 30px auto;
+  row-gap: 80px;
+}
+.abuot-clinic-big-card-2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1312px;
+  gap: 44px;
+  margin: 30px auto;
+  row-gap: 80px;
+}
+
+.clinic-card-text {
+  max-width: 753px;
+  text-align: left;
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #806d6d;
+}
+
+.card-heading {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: left;
+  color: #220f0f;
+}
+
+.clinic-card-img {
+  background-image: url(../images/Clinics/slide/photo_2022-05-10_13-42-36.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+  border-radius: 32px;
+  border: 1px solid #e42261;
+}
+
+.clinic-info-btn {
+  width: 210px;
+  height: 46px;
+  background-color: #e42261;
+  border: 1px solid #e42261;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.clinic-info-btn:hover {
+  background-color: transparent;
+  color: #e42261;
+}
+
+.clinic-card-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.clinic-card-img2 {
+  background-image: url(../images/Clinics/slide/4.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+  border-radius: 32px;
+  border: 1px solid #e42261;
+}
+.all-doctors {
+  width: 210px;
+  height: 46px;
+  background-color: #e42261;
+  border: 1px solid #e42261;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+}
+.all-doctors:hover {
+  background-color: transparent;
+  color: #e42261;
+}
+.doctors-names {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  /* text-align: center; */
+  color: #220f0f;
+}
+.doctors-depart {
+  font-family: GothamProBlackItalic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: #806d6d;
+}
+.sliders-with-name {
+  display: flex;
+  row-gap: 20px;
+  gap: 20px;
+}
+
+.doctors__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 20px;
+    justify-content: center;
+}
+
+.doctors-desc {
+  max-width: 400px;
+}
+
+.doctor-container {
+  padding-bottom: 50px;
+}

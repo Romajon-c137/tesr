@@ -1,0 +1,522 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block index %}
+  {% block header %}
+  <header>
+    <div class="romajon_header">
+      <div class="main-menu">
+        <div class="left-side">
+          <a href="/" 
+            ><img class="logo" src="{% static 'images/logo.png' %}" alt="" />
+          </a>
+          <div class="romajon_nav_center">
+            <ul class="phone-menu">
+              <li><a href="tel:0551 065 065">0551 065 065</a></li>
+              <li><a href="tel:0501 065 065">0501 065 065</a></li>
+              <li><a href="tel:0777 065 065">0777 065 065</a></li>
+            </ul>
+            <ul class="menu-list">
+              <li hidden id='close_btn'>X</li>
+              <li> <a href="/">Главная</a></li>
+              <li> <a href="/clinic">Клиника</a></li>
+              <li> <a href="/labs">Лаборатория</a></li>
+              <li> <a href="/services">Услуги</a></li>
+              <li> <a href="/specialists">Специалисты / Отделения</a></li>
+              <li> <a href="/news">Новости</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="right-side">
+          <button class="result-btn" id="result-btn">Получить результаты анализов</button>
+        </div>
+        <div class="hamburger" id="burger-menu"></div>
+
+      </div>
+    </div>
+  </header>
+  {% endblock %}
+
+
+
+  {% block content %}
+
+    <main>
+      <!--  -->
+      {% if slides.all %}
+      <div class="swiper-container">
+        <div class="container">
+          <!-- Slider main container -->
+          <div class="swiper swiper1">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+
+              {% for slide in slides %}
+              <div class="swiper-slide banner-caption ">
+                <div class="banenr-img" style="background-image: url('media/{{ slide.image }}');">
+                
+                  <div class="banner-cover">
+                    <div class="banner-info">
+                      <div class="banner-description">
+                        <h1 class="banner-title">
+                          {% if slide.title %}
+                            {{ slide.title|truncatechars:50 }}
+                          {% endif %}
+                        </h1>
+                        <p class="banner-text">{{ slide.description|striptags|truncatechars:200 }}</p>
+                      </div>
+
+                      {% if slide.button_link and slide.button_title%}
+                      <a class="appointment-lnk" href="{{ slide.button_link }}">
+                        <button class="appointment-btn">{{ slide.button_title }}</button>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev swiper-button-prev1"></div>
+        <div class="swiper-button-next swiper-button-next1"></div>
+      </div>
+      {% endif %}
+
+
+      <div class="container">
+        <div class="about-cards">
+
+          <div class="card">
+            <div class="about-cards_img">
+              <img src="{% static 'images/about-cards-icons/about-cards-icon-1.png' %}" alt="">
+            </div>
+            <h2 class="count">100+  </h1>
+              <p class="description">Видов исследований</p>
+          </div>
+
+
+          <div class="card">
+            <div class="about-cards_img">
+              <img src="{% static 'images/about-cards-icons/about-cards-icon-2.png' %}" alt="">
+            </div>
+            <h2 class="count">15</h1>
+              <p class="description">Специалиста</p>
+          </div>
+
+
+          <div class="card">
+            <div class="about-cards_img">
+              <img src="{% static 'images/about-cards-icons/about-cards-icon-4.png' %}" alt="">
+            </div>
+            <h2 class="count">20</h1>
+              <p class="description">Оборудовании</p>
+          </div>
+
+
+          <div class="card">
+            <div class="about-cards_img">
+              <img src="{% static 'images/about-cards-icons/about-cards-icon-3.png' %}" alt="">
+            </div>
+            <h2 class="count">14</h1>
+              <p class="description">Лет опыта работы</p>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+    </main>
+    <section class="about-banner">
+      <div class="container">
+        <div class="banner-caption">
+          <div class="banner-img-2">
+            <div class="banner-info-2">
+              <h1 class="banner-title-2">
+                О компании
+              </h1>
+              <p class="banner-text-2">Медицинский центр 'Диагностик' основан в 2009 году. <br>
+
+                Сегодня он уже превратился в полноценную многопрофильную клинику в городе Раззаков. <br>
+                Клиника состоит из 3 отделений: <br>
+                - Диагностическое отделение <br>
+                - Стационарное отделение<br>
+                - Амбулаторное отделение<br>
+                Диагностическое отделение имеет следующие услуги: УЗИ, ЭХО-кардиография, ЭКГ, Суточный ЭКГ мониторинг, Суточный АД мониторинг, Цифровой рентген, Стоматологический панорамный рентген, Современная лаборатория (клиническая, биохимическая, ИФА), Гастроскопия. <br>
+                Амбулаторное отделение: ЛОР кабинет, Кардиолог, Терапевт, Гинеколог, Невролог<br>
+                
+                Стационарное отделение на 35 коек с палатами для дневного и круглосуточного стационарного лечения. Мы лечим гинекологические, терапевтические, кардиологические, неврологические заболевания. <br>
+                Всего 8 врачей, 12 медсестер, 2 лаборанта, 7 технических сотрудников.
+                
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <div class="background-color">
+
+        <div class="container">
+          <h1 class="romajon-continer_title">Наши преимущества</h1>
+          <div class="information-boxes">
+
+            <div class="info-box">
+              <img src="{% static 'svg/main/1.svg' %}" alt="">
+              <h2>Современное оборудование</h2>
+              <p>
+                Современное высокотехнологичное диагностическое оборудование. 
+                Виды исследований:
+                <ul>
+                  <li>• Лучевая диагностика</li>
+                  <li>•	УЗИ</li>
+                  <li>•	Лаборатория</li>
+                </ul>                
+              </p>
+            </div>
+
+            <div class="info-box">
+              <img src="{% static 'svg/main/2.svg' %}" alt="">
+              <h2>Комфортный стационар</h2>
+              <p>Многопрофильная клиника Диагностик предлагает Вам уютный стационар с 2-х и 3-х местными палатами. <br> Направления лечения:  <ul>
+              <li>•	Неврология</li>
+              <li>•	Кардиология</li>
+              <li>•	Гинекология</li>
+            </ul></p>
+            </div>
+
+            <div class="info-box">
+              <img src="{% static 'svg/main/4.svg' %}" alt="">
+              <h2>Опытные врачи разного профиля</h2>
+              <p>В штате работают 10 врачей первой и высшей категории.
+                
+              </p>
+            </div>
+
+          </div>
+        </div>
+        {% if people.all %}
+        <section class="doctors-slider">
+          <div class="swiper-container doctor-container">
+            <div class="container">
+              <!-- Slider main container -->
+              <div class="swiper swiper2">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  {% for person in people %}
+                    <div class="swiper-slide background-slide"  style="background-image: url('media/{{ person.image }}');"></div>
+                  {% endfor %}
+                </div>
+              
+              </div>
+            
+              <!-- If we need pagination -->
+              <div class="swiper-pagination swiper-pagination2"></div>
+              
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev swiper-button-prev2"></div>
+              <div class="swiper-button-next swiper-button-next2"></div>
+              
+            </div>
+            
+          </div>
+          <div class="all-doctors">Все врачи</div>
+        </section>
+        {% endif %}
+
+    </div>
+    {% if reviews.all %}
+    <section class="feedbacks">
+      <div class="container">
+        <h2 class="feedback-header">Отзывы</h2>
+        <div class="feedback-cards">
+          {% for review in reviews %}
+          <div class="feedback-card">
+            {% comment %} <h5 class="before-header">Кардиолог</h5> {% endcomment %}
+            <div class="feedback-card_box">
+              <h3 class="person-name">{{ review.name }}</h3>
+              {% comment %} <h5 class="after-header">Иван Иванов Иванович</h5> {% endcomment %}
+              <p class="feedback">{{ review.review|striptags|truncatechars:220  }}</p>
+              <p class="feedback-date">{{ review.created_at }}</p>
+            </div>
+            <a href="{{ review.get_absolute_url }}"><button class="read-more">Читать полностью</button></a>
+          </div>
+          {% endfor %}
+          {% for review in hiddenreviews %} 
+          <div class="feedback-card hidden">
+            {% comment %} <h5 class="before-header">Кардиолог</h5> {% endcomment %}
+            <h3 class="person-name">{{ review.name }}</h3>
+            {% comment %} <h5 class="after-header">Иван Иванов Иванович</h5> {% endcomment %}
+            <p class="feedback">{{ review.review|striptags|truncatechars:220  }}</p>
+            <p class="feedback-date">{{ review.created_at }}</p>
+            <a href="{{ review.get_absolute_url }}"><button class="read-more">Читать полностью</button></a>
+          </div>
+          {% endfor %}
+
+
+        </div>
+        <div class="btns">
+          <button id="btn-load-more"> Смотреть все отзывы </button>
+          <button class="not-active" id="btn-close"> Закрыть
+          </button>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <div class="background-color">
+      <div class="container">
+        <div class="loc-wrapper">
+          <h2 class="clinic-header">Адреса клиник</h1>
+            <div class="batken-loc">
+              Batken
+            </div>
+        </div>
+
+        <div class="romajon_adress">
+          <div id="clinic-location">
+            {% comment %} <div class="location">
+              <div class="located">
+                <div class="pre-location">Бишкек</div>
+                <div class="street">ул. Энтузиастов, 30</div>
+              </div>
+  
+              <div class="table">
+                <div class="working-hours">
+                  <div class="pre-time">
+                    Время работы
+                  </div>
+                  <div class="time">
+                    ПН - ПТ 09:00 - 20:00
+                    СБ - ВС 10:00 - 19:00
+                  </div>
+                </div>
+                <div class="phone-contact">
+                  <div class="pre-phone"> Телефон</div>
+                  <div class="phones">
+                    +0 (000) 000-00-00
+                    +0 (000) 000-00-00
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+            <div class="location">
+              <div class="located">
+                <div class="pre-location">Бишкек</div>
+                <div class="street">ул. Энтузиастов, 30</div>
+              </div>
+  
+              <div class="table">
+                <div class="working-hours">
+                  <div class="pre-time">
+                    Время работы
+                  </div>
+                  <div class="time">
+                    ПН - ПТ 09:00 - 20:00
+                    СБ - ВС 10:00 - 19:00
+                  </div>
+                </div>
+                <div class="phone-contact">
+                  <div class="pre-phone"> Телефон</div>
+                  <div class="phones">
+                    +0 (000) 000-00-00
+                    +0 (000) 000-00-00
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+            <div class="location">
+              <div class="located">
+                <div class="pre-location">Бишкек</div>
+                <div class="street">ул. Энтузиастов, 30</div>
+              </div>
+  
+              <div class="table">
+                <div class="working-hours">
+                  <div class="pre-time">
+                    Время работы
+                  </div>
+                  <div class="time">
+                    ПН - ПТ 09:00 - 20:00
+                    СБ - ВС 10:00 - 19:00
+                  </div>
+                </div>
+                <div class="phone-contact">
+                  <div class="pre-phone"> Телефон</div>
+                  <div class="phones">
+                    +0 (000) 000-00-00
+                    +0 (000) 000-00-00
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+            <div class="location">
+              <div class="located">
+                <div class="pre-location">Бишкек</div>
+                <div class="street">ул. Энтузиастов, 30</div>
+              </div>
+  
+              <div class="table">
+                <div class="working-hours">
+                  <div class="pre-time">
+                    Время работы
+                  </div>
+                  <div class="time">
+                    ПН - ПТ 09:00 - 20:00
+                    СБ - ВС 10:00 - 19:00
+                  </div>
+                </div>
+                <div class="phone-contact">
+                  <div class="pre-phone"> Телефон</div>
+                  <div class="phones">
+                    +0 (000) 000-00-00
+                    +0 (000) 000-00-00
+                  </div>
+                </div>
+  
+              </div>
+            </div> {% endcomment %}
+            <div class="location media-loc">
+              <div class="located l-media">
+                <div class="pre-location">Город Исфана</div>
+                <div class="street">улица Алтын - Бешик, 30</div>
+              </div>
+  
+              <div class="table t-media romajon_table">
+                <div class="working-hours">
+                  <div class="pre-time">
+                    Время работы
+                  </div>
+                  <div class="time">
+                    ПН - ПТ 08:00 - 17:00
+                    <br>
+                    СБ - 08:00 - 13:00
+                    <br>
+                    ВС - Закрыто
+                  </div>
+                </div>
+                <div class="phone-contact">
+                  <div class="pre-phone"> Телефон</div>
+                  <div class="phones">
+                    <a href="tel:0777 065 065">0777 065 065</a>
+                    <a href="tel:0551 065 065">0551 065 065</a>
+                    <a href="tel:0501 065 065">0501 065 065</a>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+          <div class="loc-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3063.7885692431837!2d69.54578949632102!3d39.834157855369305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x454deb32b8078155!2zMznCsDUwJzA0LjYiTiA2OcKwMzInNDguMyJF!5e0!3m2!1sru!2skg!4v1653062154464!5m2!1sru!2skg"
+              width="100%" height="491" style="border: 1px solid #E42261; border-radius: 32px; margin: 2% 0;"
+              allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+
+
+  {% block footer %}
+    <footer>
+      <div class="background-color-lightRed">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-contact">
+              <div class="footer-contact-title">
+                Контактная информация
+              </div>
+              {% comment %} <div class="footer-contact-text">
+                Пациенты, проходящие стационарное лечение, Врачи и медсестры дежурят днем и ночью обслуживать.
+              </div> {% endcomment %}
+              <div class="contact-logo-and-info">
+                <div class="contact-info">
+                  <a href="tel:0777 065 065"><i class="fa fa-phone"></i> 0777 065 065</a>
+                  <a href="tel:0551 065 065"><i class="fa fa-phone"></i> 0551 065 065</a>
+                  <a href="tel:0501 065 065"><i class="fa fa-phone"></i> 0501 065 065</a>
+                  <a href="mailto:diagnostic.kg@mail.ru"><i class="fa fa-envelope"></i> diagnostic.kg@mail.ru</p>
+                </div>
+                <div class="footer-logo">
+                  <a href="#"> <img src="{% static '/images/logo2forblack.png' %}" alt=""></a>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="footer-menu">
+              <div class="footer-menu-title">
+                Быстрое меню
+              </div>
+              <ul class="quick-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/clinic">Клиника</a></li>
+                {% comment %} <li><a href="/prices">Цены</a></li> {% endcomment %}
+                <li><a href="/labs">Лаборатории</a></li>
+                <li><a href="/services">Услуги</a></li>
+                <li><a href="/specialists">Спецеалисты / отделение</a></li>
+                <li><a href="/news">Новости</a></li>
+              </ul>
+            </div>
+            <div class="footer-pages">
+              <div class="footer-pages-title">
+                Страницы
+              </div>
+              <ul class="quick-menu-pages">
+                {% for page in footer %}
+                  <li><a href="{{ page.get_absolute_url }}">{{ page.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="footer-thumb">
+              <div class="opening-hours">
+                <h4 class="working-title" data-wow-delay="0.4s">Время работы</h4>
+                <p class="m-f">Понедельник - Пятница: <span class="m-f-time">08:00 - 17:00</span></p>
+                <p class="sat">Суббота: <span class="sat-time">08:00 - 13:00</span></p>
+                <p class="sun">Воскресенье: <span class="sun-time">Закрыто</span></p>
+              </div>
+
+              <ul class="social-icon">
+                <a href="https://wa.me/996551065065" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/diagnostik_clinic/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  {% endblock %}
+
+
+
+    <!--   Core JS Files   -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> 
+    <script src="/static/javascript/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"
+      integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  {% block scripts %}
+
+
+  {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'main/index.html' %} {% load static i18n %} {% block styles %}
+
+<!--  services  -->
+<link href="{% static 'css/news.css' %}" rel="stylesheet" />
+
+{% endblock %} 
+{% block content %} 
+{% if all_news %}
+<div class="news__inner container">
+  {% for news in all_news %}
+    <div class="news__item">
+        <a href="/news/{{ news.slug }}" class="news__item--image" style="background-image: url('{{ news.get_image_url }}');">
+        </a>
+        <div class="news__item__inner">
+            <div>
+                <a href="/news/{{ news.slug }}" class="news__item--title">{{ news.title }}</a> 
+                <div class="news__item--desc">{{ news.description|striptags|truncatechars:400 }}</div> 
+            </div>
+            <div class="news__item__footer">
+                <div class="news__item--date">{{ news.created_at}}</div>
+                <div class="news__item--category">{{ news.category }}</div> 
+                <div class="news__item--author">{{ news.author }}</div> 
+            </div>
+        </div> 
+    </div>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if all_news.has_previous %}
+                <a href="?page=1">&laquo; первый</a>
+                <a href="?page={{ all_news.previous_page_number }}">предыдущий</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ all_news.number }} из {{ all_news.paginator.num_pages }}.
+            </span>
+
+            {% if all_news.has_next %}
+                <a href="?page={{ all_news.next_page_number }}">следующий</a>
+                <a href="?page={{ all_news.paginator.num_pages }}">последний &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main/index.html' %} {% load static i18n %} {% block styles %}
+
+<!--  services  -->
+<link href="{% static 'css/services.css' %}" rel="stylesheet" />
+
+{% endblock %} {% block content %}
+
+<div class="container">
+  <div class="header">
+    <h1>
+        Результаты анализов
+    </h1>
+  </div>
+  {% if result_form %}
+  <form action="" method="post" class="result__modal-form">
+    {% csrf_token %} {{ result_form }}
+    <button type="submit" class="submit_button">Получить результат</button>
+  </form>
+  {% endif %} {% if result %}
+  <div class="col-9 col-s-12">
+    <div class="container">
+      <h1>Результаты</h1>
+      <h3>
+        Показ результатов осуществляется автоматически после готовности.
+      </h3>
+      <div class="aside">{% include 'result/pdf_template.html' %}</div>
+      
+      <button
+        onclick="window.open(`download/{{result.oder_number}}/{{result.pin}}/`)"
+      >
+        Скачать результат
+      </button>
+    </div>
+  </div>
+  {% endif %} {% if notexist %}
+  <div class="col-9 col-s-12">
+    <div class="container">
+      <h2>{{ notexist }}</h2>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

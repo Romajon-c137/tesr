@@ -1,0 +1,15 @@
+{% extends 'main/index.html' %} 
+{% load static i18n %} 
+{% block content %}
+
+
+<section>
+  <div class="container">
+    <h3>{{ review.name }}</h3>
+      <p>
+       {{ review.review|striptags }}
+      </p>
+  </div>
+</section>
+
+{% endblock %}

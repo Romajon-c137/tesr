@@ -1,0 +1,37 @@
+{% load i18n static %}
+<!-- SLIDE -->
+{% if people %}
+<div class="swiper-container doctor-container">
+  <div class="container">
+    <!-- Slider main container -->
+    <div class="swiper swiper3">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for person in people %}
+        <div class="swiper-slide sliders-with-name">
+          <div
+            class="background-slide"
+            style="background-image: url('media/{{ person.image }}');"
+          ></div>
+          <div class="doctors__info">
+            <div class="doctors-names">{{ person.name }}</div>
+            <div class="doctors-depart">{{ person.get_role_display }}</div>
+            <div class="doctors-desc">{{ person.description|safe }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- If we need pagination -->
+      <div class="swiper-pagination swiper-pagination3"></div>
+
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev swiper-button-prev3"></div>
+    <div class="swiper-button-next swiper-button-next3"></div>
+  </div>
+  {% endif %}
+  {% comment %}{% endcomment %}
+   <!-- <a href="#" class="all-doctors">Все врачи</a>  -->
+</div>

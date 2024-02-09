@@ -1,0 +1,140 @@
+header {
+  position: relative;
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.romajon_header {
+  width: 100%;
+  max-width: 1440px;
+  position: fixed;
+  z-index: 99999999999999999;
+  top: 0px;
+  justify-content: center;
+  background-color: #fff;
+}
+.main-menu {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  min-height: 100px;
+  margin: 0 auto;
+}
+.romajon_nav_center {
+  height: 73px;
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.left-side {
+  display: flex;
+}
+
+.menu-logo img {
+  width: 60px;
+  height: 60px;
+}
+
+.menu-list {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-left: 30px;
+  width: 100%;
+}
+
+.menu-list.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.954);
+  z-index: 100000000000;
+  margin: 0;
+}
+
+#close_btn {
+  width: 40px;
+  height: 40px;
+  margin: 30px;
+  align-self: flex-end;
+}
+.menu-list li {
+  cursor: pointer;
+}
+.menu-list a {
+  color: black;
+  font-size: 18px;
+}
+
+.menu-list li:hover {
+  text-decoration: underline;
+  color: rgb(54, 54, 54);
+}
+
+.right-side {
+  display: flex;
+  justify-content: space-between;
+}
+
+.phone-menu {
+  display: flex;
+  gap: 15px;
+  margin-left: 30px;
+  align-items: center;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.phone-menu li {
+  cursor: pointer;
+}
+
+.phone-menu a {
+  color: #000;
+  text-decoration: none;
+}
+
+.phone-menu li:hover {
+  text-decoration: underline;
+  color: rgb(54, 54, 54);
+}
+
+.result-btn {
+  padding: 0 20px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #e42261;
+  border: none;
+  outline: none;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.result-btn:hover {
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid #e42261;
+  color: #e42261;
+}
+
+.hamburger {
+  width: 24px;
+  height: 16px;
+  display: none;
+  background-image: url(../svg/burger.svg);
+}

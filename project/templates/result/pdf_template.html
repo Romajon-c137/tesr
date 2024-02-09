@@ -1,0 +1,141 @@
+{% load i18n static %}
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      .result {
+        margin: 20px 0;
+        padding: 25px;
+        background-color: white;
+        color: black;
+        box-shadow: 0px 0px 20px -10px black;
+      }
+      td {
+        border: 1px solid #bbb;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+      }
+      .head img {
+        width: 150px;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+      }
+      .sign {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .user__info {
+        border-top: 2px solid black;
+        padding-top: 5px;
+      }
+      .user__info div {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      table {
+        width: 100%;
+      }
+      .sign img {
+        width: 50px;
+      }
+      .sign > span{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="result">
+      <div class="head">
+        <div>
+        <img src="{% static 'images/logo2.png' %}" />
+        </div>
+        <div class="analiz__address">
+          <div>Кыргызская Республика, Баткенская обл.,</div>
+          <div>Лейлекский р-н, г.Раззаков, ул.Алтын-Бешик 30</div>
+          <div>Контактный тел.:0777 065 065, 0501 065 065</div>
+          <div>0551 065 065</div>
+          <div>Время работы: Пн-Пт 07:30 - 17:00,</div>
+          <div>Сб: 07:30 - 14:00, Вс: выходной</div>
+          <div>Лицензия МЗ КР ИП № 2865</div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="user__info">
+        <div>ФИО: {{result.full_name}}</div>
+        <div>Пол: {{result.get_gender_display}}</div>
+        <div>Дата рождения: {{result.born_date|date:"d M Y"}}</div>
+      </div>
+
+        {% for analyse in analisys %}
+        {% if analyse.data|length > 0 %}
+          {% for item in analyse.data %} 
+          <br />
+          <br />
+          <h3 style="text-align: center">{{item.name}}</h3>
+          <table>
+            <thead>
+              <tr>
+                <td width="35%" align="center"><b>Параметр</b></td>
+                <td width="25%" align="center">
+                  <b>Результат</b>
+                </td>
+                <td width="20%" align="center">
+                  <b>Норма</b>
+                </td>
+                <td width="20%" align="center">
+                  <b>Ед. изм.</b>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for result in item.result %}
+              <tr>
+                <td>{{ result.name }}</td>
+                <td align="center">{{ result.result }}</td>
+                <td align="center">{{ result.norm }}</td>
+                <td align="center">{{ result.unit }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+            
+          {% endfor %}
+          {% else %}
+            <h1 class="result">Результаты от анализа "{{ analyse.name }}"  еще не получены</h1>
+          {% endif %}
+        {% endfor %}
+
+
+      
+      <br />
+      <div class="footer">
+        <div style="text-align: center">Дата: {{result.order_date|date:"d M Y"}}</div>
+        <div style="text-align: center">Заведущая лабораторией:</div>
+        <div>Исматиллаева Салкынай</div>
+      </div>
+
+      <div class="sign">
+        <span>
+          <span>Подпись:</span>
+          {% comment %} <img src="{% static 'images/sign.png' %}" /> {% endcomment %}
+        </span>
+      </div>
+
+      <br />
+      <br />
+      <div class="comment">
+        <h4>Комментарий: </h4>
+        {% if result.comment %}{{ result.comment }}{% endif %}
+      </div>
+    </div>
+  </body>
+</html>

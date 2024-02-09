@@ -1,0 +1,26 @@
+{% extends 'main/index.html' %}
+{% load static i18n %}
+{% block content %}
+<!--  services  -->
+<link href="{% static 'css/news.css' %}" rel="stylesheet" />
+
+<!-- NEWS DETAIL -->
+<div class="container">
+     <div class="news__datail">
+          
+          <div class="news__datail__inner">
+               <div  class="news__datail--title">{{ news.title }}</div> 
+               <span class="news__datail--image">
+                    <img src="{{ news.get_image_url }}" alt="{{ news.title }}">
+               </span>
+               <span class="news__datail--desc">{{ news.description|safe }}</span> 
+          </div> 
+          <div class="news__datail__footer">
+               <div class="news__datail--date">{{ news.created_at}}</div>
+               <div class="news__datail--category">{{ news.category }}</div> 
+               <div class="news__datail--author">{{ news.author }}</div> 
+          </div>
+     </div>
+</div>
+
+{% endblock %}

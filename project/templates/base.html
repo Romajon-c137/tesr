@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>«Диагностик» - Медициналык борбору</title>
+    {% endblock %}
+    <!-- Fonts and icons -->
+    {% comment %}
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    {% endcomment %}
+    <!-- base core CSS -->
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    <!--  header CSS -->
+    <link href="{% static 'css/header.css' %}" rel="stylesheet" />
+    <!--  footer CSS -->
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <!--  main CSS -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <!--  responsive CSS -->
+    <link href="{% static 'font/stylesheet.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css"
+      integrity="sha512-bSncow0ApIhONbz+pNI52n0trz5fMWbgteHsonaPk42JbunIeM9ee+zTYAUP1eLPky5wP0XZ7MSLAPxKkwnlzw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {% block styles %} {% endblock %}
+  </head>
+  <body>
+    <div class="background-color">
+      <div class="phone-call">
+        <a href="#">
+          <img
+            src="{% static '/svg/phone.svg' %}"
+            width="50"
+            alt="Call Now"
+            title="Call Now"
+          />
+        </a>
+        <a href="https://t.me/+996777065065" class="phone">
+          <img src="{% static '/svg/telegram.svg' %}" alt="phone-call" />
+        </a>
+        <a
+          href="https://api.whatsapp.com/send?phone=996777065065"
+          class="phone"
+        >
+          <img src="{% static '/svg/wp.svg' %}" alt="phone-call" />
+        </a>
+      </div>
+      <div class="result__modal" id="result__modal">
+        <div class="result__modal-content">
+          <div class="result__modal-header">
+            <h2>Результаты</h2>
+            <span class="close" id="resultx-btn"></span>
+          </div>
+          <div class="result__modal-form">
+            Доставка результатов осуществляется автоматически после готовности.
+            Для просмотра результатов заполните следующие поля
+            <br /><br />
+            {% if result_form %}
+            <form action="/result" method="post">
+              {% csrf_token %} {{ result_form }}
+              <button type="submit" class="submit_button">
+                Получить результат
+              </button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% block index %}{% endblock %}
+    </div>
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  </body>
+
+  {% block scripts %} {% endblock %}
+</html>

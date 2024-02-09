@@ -1,0 +1,95 @@
+{% extends 'main/index.html' %}
+{% load static i18n %}
+
+{% block styles %}
+
+    <!--  services  -->
+    <link href="{% static 'css/services.css' %}" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block content %}
+<section id="banner-services">
+     <div class="container">
+    <div class="banner-serv">
+         <div class="banner-inner">
+              <h2 class="banner-title">Об услугах</h2>
+              <p class="banner-text-one">Медицинский центр «Диагностик» оснащен самым современным медицинским оборудованием и предлагает широкий спектр медицинских услуг. Специалисты центра оказывают услуги по ультразвуковому исследованию внутренних органов, гастроскопии, ЭКГ, суточный мониторинг работы сердца, иглорефлексотерапии и другим видам услуг. В центре имеется оснащенные современным оборудованием лаборатории, светотерапевтические ванны, кровати Нугабест, кедровая бочка, оборудования для электрофореза, КУФ и ингаляции.</p>
+              {% comment %} <p class="banner-text-two">Ornare e</p> {% endcomment %}
+         </div>
+    </div>
+
+</section>
+<section id="our-work">
+     <div class="container">
+          <div class="categories">
+               <a  href='/services#our-work' class="serv{% if 'all' == active %} active{% endif %}">Все</a>
+               {% for category in serviceCategory %}
+                    <a href='/services?category={{ category.slug }}#our-work' class="serv{% if category.slug == active %} active{% endif %}">{{ category.name }}</a>
+               {% endfor %}
+          </div>
+          <div class="serv-cards">
+               {% for service in services %}
+                    <div class="serv-card"            style="background-image: url('media/{{ service.image }}');">
+                         <div class="serv-conetn">
+                         <div class="serv-heading"> {{ service.title }}</div>
+                         <div class="serv-tx" >
+                              {{ service.description|striptags|truncatechars:200  }}
+                         </div>
+                    </div>
+                    <a href='/services/{{ service.slug }}' class="serv-btn">Подробнее</a>
+                    </div>
+               {% endfor %}
+          </div>
+     </div>
+</section>
+<section id="forms-section">
+
+
+    <h1 class="form-heading">
+         Форма обратной связи
+    </h1>
+    <div class="form-main">
+
+          {% csrf_token %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <form class="content-area" action="{% url 'accept' %}" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                    <div>
+                         {{ form.full_name.errors }}
+                         <label for="{{ form.full_name.id_for_label }}" class="form-style">{% trans "Введите имя" %}</label>
+                         {{ form.full_name }}
+                    </div>
+                    <div>
+                         {{ form.phone_number.errors }}
+                         <label for="{{ form.phone_number.id_for_label }}" class="form-style">{% trans "Ваш телефона" %}</label>
+                         {{ form.phone_number }}
+                    </div>
+              <div class="form-texr-area">
+                    <div class="form-message">
+                         {{ form.message.errors }}
+                         <label for="{{ form.message.id_for_label }}" class="form-style">{% trans "Ваше сообщение" %}</label>
+                         {{ form.message }}
+                    </div>
+               </div>
+               <div class="form-select">
+                    {{ form.subject }}
+               </div>
+               <div class="form-btn">
+                    <input class="form-submit" type="submit" value="Отправить">
+               </div>
+            </form>
+        {% endif %}
+     </div>
+
+</section>
+</div>
+{% endblock %}
+
